@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Iterator;
 
 public class Esercizio2 {
 
@@ -17,8 +18,10 @@ public class Esercizio2 {
 	 //metodo 3
 	 String[] vecchioArray = {"pippo","pluto","paperino","minnie","qui"};
 	 String stringaDaAggiungere = "luca";
-	 
-	 System.out.println(inseriscilnArray(vecchioArray,stringaDaAggiungere));
+	
+	 for (String x : inseriscilnArray(vecchioArray,stringaDaAggiungere)) {
+			System.out.println(x);
+		}
 	
 	}
 
@@ -34,16 +37,22 @@ public class Esercizio2 {
 	  }
 	  
 	  
-	  public static String inseriscilnArray(String[]array, String stringaDaAggiungere) {
+	  public static String[] inseriscilnArray(String[]array, String stringaDaAggiungere) {
 		  String[] nuovoArray = new String[6];
-		  nuovoArray[0]=array[0];
-		  nuovoArray[1]=array[1];
-		  nuovoArray[2]=stringaDaAggiungere;
-		  nuovoArray[3]=array[2];
-		  nuovoArray[4]=array[3];
-		  nuovoArray[5]=array[4];
-		  
-		  return Arrays.toString(nuovoArray);
+		
+		    int indiceNuovoArray = 0;
+
+		    for (int i = 0; i < array.length; i++) {
+		        if (i == 2) {
+		            nuovoArray[indiceNuovoArray] = stringaDaAggiungere;
+		            indiceNuovoArray++;
+		        }
+
+		        nuovoArray[indiceNuovoArray] = array[i];
+		        indiceNuovoArray++;
+		    }
+
+		    return nuovoArray;
 		  
 	  }
 }
